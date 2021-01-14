@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  def index
-  end
+  # def index
+  # end
 
   def show
   end
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     
     if @user.save
       flash[:success] = 'ユーザーを登録しました。'
-      redirect_to tasks_path
+      redirect_to login_path
     else
       flash.now[:danger] = 'ユーザー登録に失敗しました。'
       render :new

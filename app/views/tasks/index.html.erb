@@ -1,9 +1,16 @@
 <h1>タスク一覧</h1>
+<div>
+    <p>ログインユーザー: <%= current_user.name %></p>
+</div>
 
 <ul>
     <% @tasks.each do |task| %>
-    <li><%= link_to task.id, task %> : <%= task.status %> &gt; <%= task.content %></li>
+        <li>
+            <%= link_to task.id, task %> : <%= task.status %> &gt; <%= task.content %>
+        </li>
     <% end %>
+    <%= paginate @tasks %>
 </ul>
 
 <%= link_to '新規作成', new_task_path %>
+<%= link_to 'ログアウト', logout_path, method: :delete %>
